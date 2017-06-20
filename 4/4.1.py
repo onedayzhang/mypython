@@ -57,3 +57,54 @@ dc=deepcopy(d)
 d['name'].append('Clive')
 print(c)
 print(dc)
+#fromkeys
+print({}.fromkeys(['name','age']))
+#python 3.x不一样
+print(dict.fromkeys(['name','age']),'(unknown)')
+
+#get
+d={}
+print(d.get('name'))
+print(d.get('name','N/A'))
+d['name']='Eric'
+print(d.get('name'))
+#has_key python 3.0没有
+
+#items 和iteritems(python3.0没有)
+d={'title':'Python Web Site','url':'http://www.python.org','spam':0}
+print(d.items())
+
+print(d.keys())
+#pop
+d={'x':1,'y':2}
+print(d.pop('x'))
+print(d)
+#popitem
+d={'title':'Python Web Site','url':'http://www.python.org','spam':0}
+print(d.popitem())
+print(d)
+#setdefault
+d={}
+print(d.setdefault('name','N/A'))
+print(d)
+d['name']='Gumby'
+print(d.setdefault('name','N/A'))
+print(d)
+d={}
+print(d.setdefault('name'))
+#update
+d={
+    'title':'Python web stie',
+    'url':'http://www.python.org',
+    'changed':'Mar 14 22:09:15 MET 2008'
+    }
+x={'title':'Python Language Website'}
+d.update(x)
+print(d)
+#values itervalues
+d={}
+d[1]=1
+d[2]=2
+d[3]=3
+d[4]=1
+print(d.values())
