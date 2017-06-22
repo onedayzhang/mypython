@@ -15,3 +15,6 @@ print(list(range(0,10)))
 d={'x':1,'y':2,'z':3}
 for key in d:
     print (key,'corresponds to',d[key])
+
+exec ("print('Hello,world')")
+
