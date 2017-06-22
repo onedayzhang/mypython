@@ -23,3 +23,13 @@ elif num<0:
     print('negative')
 else:
     print('zero')
+
+
+name=input('What is your name?')
+if name.endswith('Gumby'):
+ if name.startswith('Mr.'):
+  print('Hello,Mr.Gumby')
+ elif name.startswith('Mrs.'):
+  print('Hello,Mrs.Gumby')
+else:
+ print('Hello, stranger')
