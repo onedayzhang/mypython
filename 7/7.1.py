@@ -57,3 +57,52 @@ s=Secretive()
 s.accessible()
 
 s._Secretive__inaccessible()
+
+class MemberCounter:
+    members=0
+    def init(self):
+        MemberCounter.members+=1
+m1=MemberCounter()
+m1.init()
+print(MemberCounter.members)
+
+m2=MemberCounter()
+m2.init()
+print(MemberCounter.members)
+
+print(m1.members)
+print(m2.members)
+m1.members='Two'
+
+print(m1.members)
+print(m2.members)
+
+class Filter:
+    def init(self):
+        self.blocked=[]
+    def filter(self,sequence):
+        return [x for x in sequence if x not in self.blocked]
+class SPAMFiter(Filter):
+    def init(self):
+        self.blocked=['SPAM']
+
+f=Filter()
+f.init()
+print(f.filter([1,2,3]))
+
+s=SPAMFiter()
+s.init()
+print(s.filter(['SPAM','SPAM','eggs','SPAM','test']))
+
+print(issubclass(SPAMFiter,Filter))
+print(issubclass(Filter,SPAMFiter))
+
+print(SPAMFiter.__bases__)
+print(Filter.__bases__)
+
+s=SPAMFiter()
+print(isinstance(s,SPAMFiter))
+print(isinstance(s,Filter))
+print(isinstance(s,str))
+
+print(s.__class__)
