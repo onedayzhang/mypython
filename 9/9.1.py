@@ -68,9 +68,51 @@ sb.eat()
 
 class CounterList(list):
     def __init__(self,*args):
-        super(CounterList,self).__init(*args)
+        super(CounterList,self).__init__(*args)
         self.counter=0
     def __getitem__(self,index):
         self.counter+=1
         return super(CounterList,self).__getitem__(index)
+cl=CounterList(range(10))
+print (cl)
+cl.reverse()
+print (cl)
+del cl[3:6]
+print (cl)
+print(cl.counter)
+print(cl[4]+cl[2])
+print(cl.counter)
+'''
+class Rectangle:
+    def __init__(self):
+        self.width=0
+        self.height=0
+    def setSize(self,size):
+        self.width,self.height=size
+    def getSize(self):
+        return self.width,self.height
+r=Rectangle()
+r.width=10
+r.height=5
+print(r.getSize())
+r.setSize((150,100))
+print(r.width)
+'''
+__metaclass__=type
+class Rectangle:
+    def __init__(self):
+        self.width=0
+        self.height=0
+    def setSize(self,size):
+        self.width,self.height=size
+    def getSize(self):
+        return self.width,self.height
+    size=property(getSize,setSize)
+
+r=Rectangle()
+r.width=10
+r.height=5
+print(r.getSize())
+r.setSize((150,100))
+print(r.width)
 
