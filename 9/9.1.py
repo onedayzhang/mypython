@@ -185,3 +185,11 @@ def flatten(nested):
     except TypeError:
         yield nested
 print(list(flatten([[[1],2],3,4,[5,[6,7]],8])))
+
+def repeater(value):
+    while True:
+        new=(yield value)
+        if new is not None: value=new
+r= repeater(42)
+print(r.__next__())
+print(r.send("Hello,world!"))
